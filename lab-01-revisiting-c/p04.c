@@ -1,7 +1,7 @@
 /*
     Lab 1
     Revisiting C
-    4.  Write a program to read name, roll number, address and phone number of each student in your class using structure.
+    4.  Write a program to read name, roll number, and address of each student in your class using structure.
         Store the information in file so that you can recover the information later.
         While recovering the information from the file sort the information alphabetically according to the name.
 */
@@ -20,7 +20,6 @@ struct Student
 int main()
 {
     int num_of_students;
-
     char *db_filename = "student-db2.bin";
 
     printf("Enter the number of students: ");
@@ -34,19 +33,21 @@ int main()
         printf("\nEnter the data for student %d:\n", i + 1);
 
         printf("Name: ");
-        getchar();
+        fflush(stdin);
         gets(students[i].name);
 
         printf("Roll number: ");
+        fflush(stdin);
         gets(students[i].roll_no);
 
         printf("Address: ");
+        fflush(stdin);
         gets(students[i].address);
     }
 
     FILE *fp;
 
-    if ((fp = fopen(db_filename, "ab+")) == NULL)
+    if ((fp = fopen(db_filename, "wb")) == NULL)
     {
         // Error opening file
         printf("An error occurred while creating the file...");
@@ -73,7 +74,7 @@ int main()
     // Retrieve the data
     for (int i = 0; i < num_of_students; ++i)
     {
-        fread(&s[num_of_students], sizeof(struct Student), 1, fp);
+        fread(&s[i], sizeof(struct Student), 1, fp);
     }
 
     // Sort the students in alphabetical order of name
@@ -86,6 +87,7 @@ int main()
                 struct Student temp;
                 temp = s[i];
                 s[i] = s[j];
+                s[j] = temp;
             }
         }
     }
@@ -95,8 +97,9 @@ int main()
     for (int i = 0; i < num_of_students; ++i)
     {
         printf("\nStudent %d:", i + 1);
-        printf("\nName: %s", s.name);
-        printf("\nMarks in C programming: %f\n", s.marks);
+        printf("\nName: %s", s[i].name);
+        printf("\nRoll number: %s", s[i].roll_no);
+        printf("\nAddress: %s\n", s[i].address);
     }
 
     fclose(fp);
