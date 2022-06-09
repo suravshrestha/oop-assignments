@@ -33,15 +33,30 @@ public:
         _parked_time = parked_hours;
     }
 
+    inline int getChargePerHour() const
+    {
+        return _charge_per_hour;
+    }
+
+    inline float getParkedTime() const
+    {
+        return _parked_time;
+    }
+
     void showChargePerHour()
     {
         std::cout << "Charge per hour: "
-                  << "Rs." << _charge_per_hour << std::endl;
+                  << "Rs." << getChargePerHour() << std::endl;
     }
 
     void showParkedTime()
     {
-        std::cout << "Parked time: " << _parked_time << " hours" << std::endl;
+        std::cout << "Parked time: " << getParkedTime() << " hours" << std::endl;
+    }
+
+    void showTotalCharge()
+    {
+        std::cout << "Total charge: Rs." << getChargePerHour() * getParkedTime() << std::endl;
     }
 };
 
@@ -55,6 +70,7 @@ int main()
 
     cp.showParkedTime();
     cp.showChargePerHour();
+    cp.showTotalCharge();
 
     return 0;
 }
