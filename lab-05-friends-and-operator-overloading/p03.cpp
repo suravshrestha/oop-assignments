@@ -51,6 +51,7 @@ int main()
 {
     Integer i1(1), i2(2);
 
+    // (i1 == i2) is equivalent to (i1.operator==(i2))
     std::cout << "i1 == i2 -> " << ((i1 == i2) ? "true" : "false") << '\n';
     std::cout << "i1 < i2 -> " << ((i1 < i2) ? "true" : "false") << '\n';
     std::cout << "i1 > i2 -> " << ((i1 > i2) ? "true" : "false") << '\n';

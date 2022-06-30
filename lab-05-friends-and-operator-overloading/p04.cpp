@@ -49,7 +49,9 @@ public:
 
     void display()
     {
-        std::cout << _year << "-" << std::setfill('0') << std::setw(2) << _month << "-" << std::setfill('0') << std::setw(2) << _day;
+        std::cout << _year << "-"
+                  << std::setfill('0') << std::setw(2) << _month << "-"
+                  << std::setfill('0') << std::setw(2) << _day;
     }
 };
 

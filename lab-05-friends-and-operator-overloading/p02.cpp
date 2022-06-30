@@ -32,6 +32,8 @@ public:
 int main()
 {
     Coordinate c1(1, 5, 3), c2(3, 7, 0);
+
+    // c1.operator+(c2) raises an error because Coordinate::operator+() is not a member function
     Coordinate c3 = c1 + c2;
 
     c3.display();
