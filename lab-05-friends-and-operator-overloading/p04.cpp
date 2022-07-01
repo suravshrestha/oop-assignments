@@ -22,7 +22,20 @@ public:
     {
         _day++;
 
-        if (_day > 31)
+        if (
+            // Month 1, 3, 5, 7, 8, 10, 12 has 31 days
+            ((_month == 1 || _month == 3 || _month == 5 || _month == 7 ||
+              _month == 8 || _month == 10 || _month == 12) &&
+             (_day > 31)) ||
+
+            // Month 4, 6, 9, 11 has 30 days
+            ((_month == 4 || _month == 6 || _month == 9 || _month == 11) && (_day > 30)) ||
+
+            // Month 2 in leap year has 29 days
+            (isLeapYear() && (_month == 2 && _day > 29)) ||
+
+            // Month 2 in non-leap year has 28 days
+            (!isLeapYear() && (_month == 2 && _day > 28)))
         {
             _day = 1;
             _month++;
@@ -47,20 +60,44 @@ public:
         return temp;
     }
 
+    bool isLeapYear()
+    {
+        // If the year is divisible by 400, then it is a leap year
+        if (_year % 400 == 0)
+            return true;
+
+        // else if the year is divisible by 100, then it is not a leap year
+        if (_year % 100 == 0)
+            return false;
+
+        // else if the year is divisible by 4, then it is a leap year
+        if (_year % 4 == 0)
+            return true;
+
+        return false;
+    }
+
     void display()
     {
         std::cout << _year << "-"
                   << std::setfill('0') << std::setw(2) << _month << "-"
-                  << std::setfill('0') << std::setw(2) << _day;
+                  << std::setfill('0') << std::setw(2) << _day << '\n';
     }
 };
 
 int main()
 {
-    Date d(2022, 12, 31);
-    d++;
+    Date d1(2022, 12, 31);
+    d1.display();
 
-    d.display();
+    // First assign d1 to d2 and then increase d1
+    Date d2 = d1++;
+    d2.display();
+    d1.display();
+
+    // Assign the increased value to d1
+    d1 = ++d1;
+    d1.display();
 
     return 0;
 }
