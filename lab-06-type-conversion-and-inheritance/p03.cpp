@@ -19,23 +19,13 @@
 */
 
 #include <iostream>
-#include <cstring>
 
 class Musicians
 {
-private:
-    char _string_instruments[5][20];
-    char _wind_instruments[5][20];
-    char _perc_instruments[5][20];
-
 public:
     void string()
     {
-        strcpy(_string_instruments[0], "Veena");
-        strcpy(_string_instruments[1], "Guitar");
-        strcpy(_string_instruments[2], "Sitar");
-        strcpy(_string_instruments[3], "Sarod");
-        strcpy(_string_instruments[4], "Mandolin");
+        std::string _string_instruments[5] = {"Veena", "Guitar", "Sitar", "Sarod", "Mandolin"};
 
         std::cout << "String instruments:\n";
         for (int i = 0; i < 5; i++)
@@ -46,11 +36,7 @@ public:
 
     void wind()
     {
-        strcpy(_wind_instruments[0], "Flute");
-        strcpy(_wind_instruments[1], "Clarinet");
-        strcpy(_wind_instruments[2], "Nadhaswaram");
-        strcpy(_wind_instruments[3], "Piccolo");
-        strcpy(_wind_instruments[4], "Saxophone");
+        std::string _wind_instruments[5] = {"Flute", "Clarinet", "Nadhaswaram", "Piccolo", "Saxophone"};
 
         std::cout << "\nWind instruments:\n";
         for (int i = 0; i < 5; i++)
@@ -61,11 +47,7 @@ public:
 
     void perc()
     {
-        strcpy(_perc_instruments[0], "Tabla");
-        strcpy(_perc_instruments[1], "Mridangam");
-        strcpy(_perc_instruments[2], "Bangos");
-        strcpy(_perc_instruments[3], "Drums");
-        strcpy(_perc_instruments[4], "Tambour");
+        std::string _perc_instruments[5] = {"Tabla", "Mridangam", "Bangos", "Drums", "Tambour"};
 
         std::cout << "\nPercussion instruments:\n";
         for (int i = 0; i < 5; i++)
@@ -77,7 +59,6 @@ public:
 
 class TypeIns : public Musicians
 {
-private:
 public:
     char get()
     {
