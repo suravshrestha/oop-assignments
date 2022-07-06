@@ -12,8 +12,6 @@
 #include <iostream>
 #include <cstring>
 
-using namespace std;
-
 class Person
 {
 protected:
@@ -24,11 +22,11 @@ public:
     Person()
     {
         fflush(stdin);
-        cout << "Name: ";
+        std::cout << "Name: ";
         gets(_name);
 
-        cout << "Age: ";
-        cin >> _age;
+        std::cout << "Age: ";
+        std::cin >> _age;
     }
 
     void setDetails(const char name[], int age)
@@ -39,13 +37,13 @@ public:
 
     void display()
     {
-        cout << "\nName: " << _name << '\n';
-        cout << "Age: " << _age << '\n';
+        std::cout << "\nName: " << _name << '\n';
+        std::cout << "Age: " << _age << '\n';
     }
 
     void displayAddress()
     {
-        cout << "Address of this object: " << this << '\n';
+        std::cout << "Address of this object: " << this << '\n';
     }
 
     void deleteObject()
@@ -69,7 +67,7 @@ public:
         // Person class is constructed first and then only Student class is constructed.
 
         fflush(stdin);
-        cout << "Id: ";
+        std::cout << "Id: ";
         gets(_id);
     }
 
@@ -81,10 +79,10 @@ public:
 
     void display()
     {
-        cout << "\nStudent details:";
+        std::cout << "\nStudent details:";
 
         Person::display();
-        cout << "Id: " << _id << '\n';
+        std::cout << "Id: " << _id << '\n';
     }
 };
 
@@ -98,11 +96,11 @@ public:
     Employee()
     {
         fflush(stdin);
-        cout << "Id: ";
+        std::cout << "Id: ";
         gets(_id);
 
-        cout << "Salary: ";
-        cin >> _salary;
+        std::cout << "Salary: ";
+        std::cin >> _salary;
     }
 
     void setDetails(const char name[], int age, const char id[], int salary)
@@ -114,31 +112,31 @@ public:
 
     void display()
     {
-        cout << "\nEmployee details:";
+        std::cout << "\nEmployee details:";
 
         Person::display();
-        cout << "Id: " << _id << '\n';
-        cout << "Salary: " << _salary << '\n';
+        std::cout << "Id: " << _id << '\n';
+        std::cout << "Salary: " << _salary << '\n';
     }
 };
 
 int main()
 {
-    cout << "Enter details for person:\n";
+    std::cout << "Enter details for person:\n";
     Person p;
     p.display();
     p.displayAddress();
     p.setDetails("John", 30);
     p.display();
 
-    cout << "\nEnter details for student:\n";
+    std::cout << "\nEnter details for student:\n";
     Student s;
     s.display();
     s.displayAddress();
     s.setDetails("Jane", 32, "bct089");
     s.display();
 
-    cout << "\nEnter details for employee:\n";
+    std::cout << "\nEnter details for employee:\n";
     Employee e;
     e.display();
     e.displayAddress();
