@@ -43,7 +43,7 @@ int main()
     std::cout << " = " << float(d) << "m" << '\n';
 
     float m = 1.57;
-    Distance d2(m); // Distance(m)
+    Distance d2(m); // d2 = Distance(m)
     std::cout << m << 'm' << " = ";
     d2.display();
 
