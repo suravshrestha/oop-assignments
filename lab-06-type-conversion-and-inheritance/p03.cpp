@@ -73,7 +73,7 @@ public:
         return choice;
     }
 
-    char show()
+    void show()
     {
         char choice = get();
         switch (choice)
