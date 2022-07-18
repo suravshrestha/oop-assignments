@@ -5,10 +5,10 @@
 class Integer
 {
 private:
-    int _val{0};
+    int _val;
 
 public:
-    Integer(int val) : _val{val} {}
+    Integer(int val = 0) : _val{val} {}
 
     bool operator==(const Integer &i)
     {

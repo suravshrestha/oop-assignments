@@ -5,10 +5,10 @@
 class Point
 {
 private:
-    float _x{0}, _y{0};
+    float _x, _y;
 
 public:
-    Point(float x, float y) : _x{x}, _y{y} {}
+    Point(float x = 0, float y = 0) : _x{x}, _y{y} {}
 
     void *operator new(size_t size)
     {

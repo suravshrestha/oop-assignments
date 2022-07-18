@@ -5,11 +5,9 @@
 class Fraction
 {
 private:
-    int _numerator{0};
-    int _denominator{1};
+    int _numerator, _denominator;
 
 public:
-    // Default constructor
     Fraction(int numerator = 0, int denominator = 1)
         : _numerator{numerator}, _denominator{denominator}
     {

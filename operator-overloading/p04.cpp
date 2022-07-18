@@ -5,11 +5,11 @@
 class Point
 {
 private:
-    float _x{0}, _y{0};
+    float _x, _y;
 
 public:
     // Overload function call operator as a constructor
-    Point operator()(float x, float y)
+    Point operator()(float x = 0, float y = 0)
     {
         _x = x;
         _y = y;
