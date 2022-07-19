@@ -20,7 +20,10 @@ public:
     void operator delete(void *p)
     {
         std::cout << "delete operator called\n";
-        ::delete (Point *)p; // Global scope resolution is to avoid recursion
+
+        // Deleting void* is undefined so we typecast it to Point*
+        // Global scope resolution is to avoid recursion
+        ::delete (Point *)p;
     }
 
     void display()
