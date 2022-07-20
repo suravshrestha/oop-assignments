@@ -8,14 +8,12 @@
 
 #include <iostream>
 
-using namespace std;
-
 class Person
 {
 public:
     Person(int foo)
     {
-        cout << "Calling Person() " << foo << '\n';
+        std::cout << "Calling Person() " << foo << '\n';
     }
 };
 
@@ -27,7 +25,7 @@ public:
     // Here, Person constructor will be called only while creating an instance of Employee
     Employee(int bar) : Person(bar)
     {
-        cout << "Calling Employee() " << bar << '\n';
+        std::cout << "Calling Employee() " << bar << '\n';
     }
 };
 
@@ -36,7 +34,7 @@ class Student : virtual public Person
 public:
     Student(int baz) : Person(baz)
     {
-        cout << "Calling Student() " << baz << '\n';
+        std::cout << "Calling Student() " << baz << '\n';
     }
 };
 
@@ -48,7 +46,7 @@ public:
     // So, Person constructor is called from here if Manager object is created
     Manager(int foo, int bar, int baz) : Person(foo), Employee(bar), Student(baz)
     {
-        cout << "Calling Manager() " << foo << '\n';
+        std::cout << "Calling Manager() " << foo << '\n';
     }
 };
 

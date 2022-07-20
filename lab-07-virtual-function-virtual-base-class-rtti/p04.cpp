@@ -9,15 +9,13 @@
 #include <iostream>
 #include <typeinfo> // typeid
 
-using namespace std;
-
 class Vehicle
 {
 public:
     // For dynamic downcasting, base class must have at least one virtual function
     virtual void print()
     {
-        cout << "Vehicle" << '\n';
+        std::cout << "Vehicle" << '\n';
     }
 };
 
@@ -26,7 +24,7 @@ class Bus : public Vehicle
 public:
     void print() override
     {
-        cout << "Bus" << '\n';
+        std::cout << "Bus" << '\n';
     }
 };
 
@@ -35,7 +33,7 @@ class Car : public Vehicle
 public:
     void print() override
     {
-        cout << "Car" << '\n';
+        std::cout << "Car" << '\n';
     }
 };
 
@@ -44,7 +42,7 @@ class Bike : public Vehicle
 public:
     void print() override
     {
-        cout << "Bike" << '\n';
+        std::cout << "Bike" << '\n';
     }
 };
 
@@ -56,26 +54,20 @@ int main()
     Vehicle *vp = &bus;
 
     // Downcasting - Dynamic casting base class to derived class
-    Bus *bp = dynamic_cast<Bus *>(vp);
+    Bus *busp = dynamic_cast<Bus *>(vp);
 
-    if (bp == nullptr)
+    if (busp == nullptr)
     {
-        cout << "cp is nullptr\n";
+        std::cout << "busp is nullptr\n";
         return -1;
     }
 
-    vp->print();
-    bp->print();
+    busp->print();
 
-    // Store information about type of the object
-    const type_info &type_bus = typeid(bus);
-    const type_info &type_vp = typeid(vp);
-    const type_info &type_bp = typeid(bp);
-
-    // Display name of the type
-    cout << type_bus.name() << '\n';
-    cout << type_vp.name() << '\n';
-    cout << type_bp.name();
+    // Display information containing the name of the type
+    std::cout << typeid(bus).name() << '\n';
+    std::cout << typeid(vp).name() << '\n';
+    std::cout << typeid(*busp).name(); // Information about the object pointed by busp
 
     return 0;
 }

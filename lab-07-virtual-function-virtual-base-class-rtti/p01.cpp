@@ -10,14 +10,12 @@
 
 #include <iostream>
 
-using namespace std;
-
 class Shape
 {
 public:
     virtual ~Shape()
     {
-        cout << "Calling ~Shape()\n\n";
+        std::cout << "Calling ~Shape()\n\n";
     }
 
     virtual float area()
@@ -27,7 +25,7 @@ public:
 
     virtual void display()
     {
-        cout << "Shape\n";
+        std::cout << "Shape\n";
     }
 };
 
@@ -44,7 +42,7 @@ public:
     // "this is a virtual method, that is overriding a virtual method of the base class."
     ~Circle() override
     {
-        cout << "Calling ~Circle()\n";
+        std::cout << "Calling ~Circle()\n";
     }
 
     // Overriding functions of the base class Shape
@@ -55,7 +53,7 @@ public:
 
     void display() override
     {
-        cout << "Circle\n";
+        std::cout << "Circle\n";
     }
 };
 
@@ -69,7 +67,7 @@ public:
 
     ~Rectangle()
     {
-        cout << "Calling ~Rectangle()\n";
+        std::cout << "Calling ~Rectangle()\n";
     }
 
     float area() override
@@ -79,7 +77,7 @@ public:
 
     void display() override
     {
-        cout << "Rectangle\n";
+        std::cout << "Rectangle\n";
     }
 };
 
@@ -99,7 +97,7 @@ public:
 
     void display() override
     {
-        cout << "Trapezoid\n";
+        std::cout << "Trapezoid\n";
     }
 };
 
@@ -116,9 +114,9 @@ int main()
 
     // If the functions in class Shape are not made virtual, the method will be called of the
     // Shape object, and not of the object pointed by the Shape pointer.
-    cout << shapes[0]->area() << '\n';
+    std::cout << shapes[0]->area() << '\n';
     shapes[1]->display();
-    cout << shapes[2]->area() << '\n';
+    std::cout << shapes[2]->area() << '\n';
 
     // Destructor is made virtual so destructor of the object pointed (derived class) is called first
     delete shapes[0];

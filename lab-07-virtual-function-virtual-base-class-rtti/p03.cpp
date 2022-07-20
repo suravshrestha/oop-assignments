@@ -9,30 +9,28 @@
 
 #include <iostream>
 
-using namespace std;
-
 class Student
 {
 public:
-    virtual void print() { cout << "Student\n"; }
+    virtual void print() { std::cout << "Student\n"; }
 };
 
 class Engineering : public Student
 {
 public:
-    void print() override { cout << "Engineering student\n"; }
+    void print() override { std::cout << "Engineering student\n"; }
 };
 
 class Medicine : public Student
 {
 public:
-    void print() override { cout << "Medicine student\n"; }
+    void print() override { std::cout << "Medicine student\n"; }
 };
 
 class Science : public Student
 {
 public:
-    void print() override { cout << "Science student\n"; }
+    void print() override { std::cout << "Science student\n"; }
 };
 
 int main()
