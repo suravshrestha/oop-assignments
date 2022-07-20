@@ -15,7 +15,7 @@ public:
     // For dynamic downcasting, base class must have at least one virtual function
     virtual void print()
     {
-        std::cout << "Vehicle" << '\n';
+        std::cout << "Vehicle\n";
     }
 };
 
@@ -24,7 +24,7 @@ class Bus : public Vehicle
 public:
     void print() override
     {
-        std::cout << "Bus" << '\n';
+        std::cout << "Bus\n";
     }
 };
 
@@ -33,7 +33,7 @@ class Car : public Vehicle
 public:
     void print() override
     {
-        std::cout << "Car" << '\n';
+        std::cout << "Car\n";
     }
 };
 
@@ -42,7 +42,7 @@ class Bike : public Vehicle
 public:
     void print() override
     {
-        std::cout << "Bike" << '\n';
+        std::cout << "Bike\n";
     }
 };
 
