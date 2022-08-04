@@ -41,12 +41,12 @@ int main()
     {
         // Handle an exception of type int
         // Executed if the previous try-catch block throws an exception of type int
-        std::cout << "Error: Exception of type int!" << '\n';
+        std::cout << "Error: Exception of type int!\n";
     }
     catch (...)
     {
         // Catch all other exceptions
-        std::cout << "Error: Unknown error!" << '\n';
+        std::cout << "Error: Unknown error!\n";
     }
 
     return 0;

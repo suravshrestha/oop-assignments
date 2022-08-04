@@ -18,9 +18,9 @@ private:
 public:
     Queue(int capacity)
     {
-        this->front = 0;
-        this->back = -1;
-        this->queue = new T[capacity];
+        front = 0;
+        back = -1;
+        queue = new T[capacity];
     }
 
     ~Queue()
